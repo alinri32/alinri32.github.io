@@ -54,13 +54,12 @@ const profile = {
     { Name: "Problem-solving ability " },
     { Name: "Fast Learner" },
     { Name: "Creative" },
-    { Name: "R&D is my thing" },
   ],
   LangTech: [
     { Name: "Netowrk+" },
     { Name: "Python" },
     { Name: "Django" },
-    { Name: "Django Restframework" },
+    { Name: "RESTful API" },
     // { Name: "Django Channels & Celery" },
     // { Name: "Async Programming" },
     { Name: "Docker/DockerCompose" },
@@ -69,7 +68,7 @@ const profile = {
     { Name: "Machin Learning Skils" },
     { Name: "NumPy/Pandas | MathplotLib/Seaborn | Scikit-Learn" },
     { Name: "PostgreSQL/SQLserver/mySQL" },
-    { Name: "Redis/Rabbitmq" },
+    // { Name: "Redis/Rabbitmq" },
     { Name: "Git/Github/Gitlab" },
   ],
   Educations: [
