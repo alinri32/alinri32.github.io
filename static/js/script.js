@@ -1,41 +1,56 @@
 const codePanel = document.getElementById("code-panel");
 const outputPanel = document.getElementById("output-panel");
 
-const pythonCode = [
-  "<span class='syntax-comment'># Ali Noori — Back-end Developer Portfolio</span>",
-  `<span class='syntax-comment'># Born: 2001/04/16</span>`,
-  `<span class='syntax-comment'># Email: e.alinri@gmail.com</span>`,
-  `<span class='syntax-comment'># Phone: 09196588985</span>`,
+const csharpCode = [
+  "<span class='syntax-comment'>// Ali Noori — Back-end Developer Portfolio</span>",
+  `<span class='syntax-comment'>// Born: 2001/04/16</span>`,
+  `<span class='syntax-comment'>// Email: e.alinri@gmail.com</span>`,
+  `<span class='syntax-comment'>// Phone: 09196588985</span>`,
   "",
-  "<span class='syntax-keyword'>import</span> datetime",
-  "<span class='syntax-keyword'>import</span> json",
+  "<span class='syntax-keyword'>using</span> System;",
+  "<span class='syntax-keyword'>using</span> System.Collections.Generic;",
   "",
-  "<span class='syntax-keyword'>class</span> Developer:",
-  "    <span class='syntax-keyword'>def</span> <span class='syntax-function'>__init__</span>(self, profile):",
-  "        self.profile = profile",
+  "<span class='syntax-keyword'>namespace</span> Portfolio",
+  "{",
+  "    <span class='syntax-keyword'>public class</span> Developer",
+  "    {",
+  "        <span class='syntax-keyword'>public</span> Profile Profile { <span class='syntax-keyword'>get</span>; <span class='syntax-keyword'>set</span>; }",
   "",
-  "    <span class='syntax-keyword'>def</span> <span class='syntax-function'>bio</span>(self):",
-  "        <span class='syntax-keyword'>print</span>(f\"Name: {self.profile.General.FirstName} {self.profile.General.LastName}\")",
-  "        <span class='syntax-keyword'>print</span>(f\"Email: {self.profile.General.Email}\")",
-  "        <span class='syntax-keyword'>print</span>(f\"Phone: {self.profile.General.Phone}\")",
-  "        <span class='syntax-keyword'>print</span>(f\"Address: {self.profile.General.Address}\")",
-  "        <span class='syntax-keyword'>print</span>(f\"BirthDate: {self.profile.General.BirthDate}\")",
-  "        <span class='syntax-keyword'>print</span>(\"\\nSkills:\")",
-  "        <span class='syntax-keyword'>print</span>(', '.join([s.Name for s in self.profile.Skills]))",
-  "        <span class='syntax-keyword'>print</span>(\"\\nLanguages & Technologies:\")",
-  "        <span class='syntax-keyword'>print</span>(', '.join([l.Name for l in self.profile.LangTech]))",
-  "        <span class='syntax-keyword'>print</span>(\"\\nEducation:\")",
-  "        <span class='syntax-keyword'>for</span> edu <span class='syntax-keyword'>in</span> self.profile.Educations:",
-  "            <span class='syntax-keyword'>print</span>(f\"{edu.grade} in {edu.in} ({edu.from} - {edu.to if edu.to else 'Present'})\")",
-  "        <span class='syntax-keyword'>print</span>(\"\\nWork Experience:\")",
-  "        <span class='syntax-keyword'>for</span> work <span class='syntax-keyword'>in</span> self.profile.Work:",
-  "            <span class='syntax-keyword'>print</span>(f\"{work.title} at {work.company}, {work.city} ({work.from} - {work.to if work.to else 'Present'})\")",
+  "        <span class='syntax-keyword'>public</span> Developer(Profile profile)",
+  "        {",
+  "            Profile = profile;",
+  "        }",
   "",
-  "<span class='syntax-comment'># Initialize Developer with profile</span>",
-  "ali = Developer(profile)",
-  "ali.bio()",
+  "        <span class='syntax-keyword'>public void</span> Bio()",
+  "        {",
+  "            Console.WriteLine($\"Name: {Profile.General.FirstName} {Profile.General.LastName}\");",
+  "            Console.WriteLine($\"Email: {Profile.General.Email}\");",
+  "            Console.WriteLine($\"Phone: {Profile.General.Phone}\");",
+  "            Console.WriteLine($\"Address: {Profile.General.Address}\");",
+  "            Console.WriteLine($\"BirthDate: {Profile.General.BirthDate}\");",
+  "            Console.WriteLine(\"\\nSkills:\");",
+  "            Console.WriteLine(string.Join(\", \", Profile.Skills.ConvertAll(s => s.Name)));",
+  "            Console.WriteLine(\"\\nLanguages & Technologies:\");",
+  "            Console.WriteLine(string.Join(\", \", Profile.LangTech.ConvertAll(l => l.Name)));",
+  "            Console.WriteLine(\"\\nEducation:\");",
+  "            <span class='syntax-keyword'>foreach</span> (var edu <span class='syntax-keyword'>in</span> Profile.Educations)",
+  "            {",
+  "                Console.WriteLine($\"{edu.Grade} in {edu.In} ({edu.From} - {(edu.To != null ? edu.To : \"Present\")})\");",
+  "            }",
+  "            Console.WriteLine(\"\\nWork Experience:\");",
+  "            <span class='syntax-keyword'>foreach</span> (var work <span class='syntax-keyword'>in</span> Profile.Work)",
+  "            {",
+  "                Console.WriteLine($\"{work.Title} at {work.Company}, {work.City} ({work.From} - {(work.To != null ? work.To : \"Present\")})\");",
+  "            }",
+  "        }",
+  "    }",
   "",
-  "<span class='syntax-comment'># End of resume</span>",
+  "    <span class='syntax-comment'>// Initialize Developer with profile</span>",
+  "    <span class='syntax-keyword'>var</span> ali = <span class='syntax-keyword'>new</span> Developer(profile);",
+  "    ali.Bio();",
+  "}",
+  "",
+  "<span class='syntax-comment'>// End of resume</span>",
 ];
 
 // Simulated JSON object (your resume)
@@ -124,8 +139,8 @@ function printOutput(text) {
 }
 
 function typeLine() {
-  if (lineIndex < pythonCode.length) {
-    const lineContent = pythonCode[lineIndex];
+  if (lineIndex < csharpCode.length) {
+    const lineContent = csharpCode[lineIndex];
 
     if (lineContent.includes("ali.bio()")) {
       printLine(lineContent);
