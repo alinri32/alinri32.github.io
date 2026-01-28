@@ -46,7 +46,7 @@ const profile = {
     Email: "e.alinri@gmail.com",
     Phone: "09196588985",
     BirthDate: "2001/04/16 - 1380/01/27",
-    Address: "Tehran",
+    Address: "Qazvin",
   },
   Skills: [
     { Name: "Self Study" },
@@ -57,10 +57,10 @@ const profile = {
   ],
   LangTech: [
     { Name: "Netowrk+" },
+    { Name: "C#" },
     { Name: "Python" },
-    { Name: "Django" },
+    { Name: "Asp.Net Core" },
     { Name: "RESTful API" },
-    { Name: "Django Channels & Celery" },
     { Name: "Async Programming" },
     { Name: "Docker/DockerCompose" },
     { Name: "HTML & CSS" },
@@ -96,6 +96,14 @@ const profile = {
       city: "Tehran",
       company: "Pars Online",
       mode: "Full time - Remote",
+    },
+    {
+      from: "2024-09",
+      to: "Now",
+      title: "Back-End Developer (C#)",
+      city: "Qazvin",
+      company: "Sepidyarhesab",
+      mode: "Full time",
     },
   ],
 };
